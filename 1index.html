@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti, mi amor ❤️</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap">
+
+<style>
+:root{
+  --fondo:#ffe4ec;
+  --rosa:#ffb8cf;
+  --vino:#5a1a33;
+  --accent:#e63a6e;
+  --paper:#fff8ef;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:"Quicksand",sans-serif;
+  color:var(--vino);
+  background:linear-gradient(135deg,var(--fondo),var(--rosa),var(--fondo));
+  background-size:300% 300%;
+  animation:fondo 15s ease infinite;
+  overflow-x:hidden;
+}
+@keyframes fondo{
+  0%,100%{background-position:0 50%}
+  50%{background-position:100% 50%}
+}
+.script{font-family:"Great Vibes","Brush Script MT",cursive}
+main{max-width:950px;margin:auto;padding:25px 16px 60px}
+.hero{text-align:center;padding:28px 0 12px}
+.hero h1{font-size:clamp(2.8rem,9vw,4.8rem);margin:0;color:var(--accent)}
+.hero p{margin:12px 0}
+.heart-title{font-size:2.5rem;animation:latido 1s infinite;display:inline-block}
+@keyframes latido{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.22)}
+}
+.card{
+  background:#ffffffb8;
+  backdrop-filter:blur(9px);
+  border:1px solid #ffffffaa;
+  border-radius:23px;
+  padding:20px;
+  margin-top:25px;
+  box-shadow:0 10px 35px #e63a6e26;
+}
+.card h2{font-size:2rem;color:var(--accent);margin:0 0 15px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button,.btn{
+  display:inline-block;
+  border:0;
+  border-radius:30px;
+  padding:11px 17px;
+  background:linear-gradient(135deg,#e63a6e,#ff8fb1);
+  color:white;
+  font:inherit;
+  font-weight:600;
+  cursor:pointer;
+  text-align:center;
+}
+input[type=file]{display:none}
+input[type=range]{accent-color:var(--accent)}
+small{line-height:1.6}
+
+/* TREN DE RECUERDOS */
+.train{overflow:hidden;position:relative;padding:15px 0 30px}
+.track{display:flex;width:max-content;animation:recuerdos var(--dur,45s) linear infinite}
+.train:hover .track{animation-play-state:paused}
+@keyframes recuerdos{to{transform:translateX(-50%)}}
+.loco{font-size:3.5rem;align-self:center;margin-right:20px;flex:none}
+.wagon{flex:none;width:200px;margin-right:22px;cursor:pointer}
+.frame{
+  height:155px;
+  border:5px solid var(--accent);
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--paper);
+  display:grid;
+  place-items:center;
+  text-align:center;
+}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.wheels{display:flex;justify-content:space-around;padding:0 20px;margin-top:4px}
+.wheels i{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--vino);border:4px dashed #ff8fb1;
+  animation:gira 2s linear infinite;
+}
+@keyframes gira{to{transform:rotate(360deg)}}
+.rail{
+  position:absolute;bottom:12px;left:0;right:0;height:5px;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 24px);
+}
+
+/* VIDEO */
+.video-player{
+  display:grid;
+  gap:15px;
+  justify-items:center;
+}
+#videoAmor{
+  display:block;
+  width:100%;
+  max-width:500px;
+  max-height:500px;
+  border:4px solid var(--accent);
+  border-radius:20px;
+  background:#000;
+  box-shadow:0 8px 25px #e63a6e30;
+}
+.video-caption{
+  font-family:"Great Vibes","Brush Script MT",cursive;
+  font-size:1.8rem;
+  margin:0;
+  text-align:center;
+}
+
+/* CARTA */
+.letterbox{display:grid;justify-items:center;gap:18px}
+.env{
+  width:min(300px,85vw);height:185px;position:relative;
+  cursor:pointer;border-radius:8px;
+  background:linear-gradient(145deg,#ffb3c8,#ff6795);
+  box-shadow:0 12px 30px #e63a6e44;
+  animation:flota 3s ease-in-out infinite;
+}
+@keyframes flota{50%{transform:translateY(-7px)}}
+.flap{
+  position:absolute;inset:0 0 auto;height:60%;
+  background:#ff7da3;clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;transition:transform .7s;
+}
+.seal{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:2.6rem;transition:opacity .4s;
+}
+.env.open .flap{transform:rotateX(180deg)}
+.env.open .seal{opacity:0}
+.paper{
+  display:none;width:min(560px,100%);padding:25px 22px;
+  border-radius:8px;background:var(--paper);color:#4a2530;
+  box-shadow:0 12px 30px #0002;
+  background-image:repeating-linear-gradient(transparent 0 32px,#e63a6e20 32px 33px);
+}
+.paper.show{display:block;animation:aparece .8s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(25px)}}
+#text{
+  font-family:"Great Vibes","Brush Script MT",cursive;
+  font-size:1.7rem;line-height:1.65;white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+#editor{
+  display:none;width:100%;min-height:310px;padding:12px;
+  border:2px dashed var(--accent);border-radius:10px;
+  font:inherit;line-height:1.6;background:white;
+}
+.sign{text-align:right;margin-top:15px;font-size:1.5rem;color:var(--accent)}
+.sign span{border-bottom:1px dashed var(--accent);outline:none}
+
+/* CORAZONES FLOTANTES */
+.floating-heart{
+  position:fixed;bottom:-40px;z-index:10;pointer-events:none;
+  animation:subir linear forwards;
+}
+@keyframes subir{
+  to{transform:translateY(-110vh) rotate(25deg);opacity:0}
+}
+
+/* FOTO GRANDE */
+#lb{
+  position:fixed;inset:0;z-index:100;
+  background:#17000bed;display:none;
+  place-items:center;padding:20px;
+}
+#lb.show{display:grid}
+#lb img{max-width:100%;max-height:85vh;object-fit:contain;border:5px solid var(--accent);border-radius:12px}
+footer{text-align:center;margin-top:35px;font-size:1.7rem}
+@media(max-width:480px){
+  .card{padding:16px}
+  #videoAmor{max-height:65vh}
+  #text{font-size:1.5rem}
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<section class="hero">
+  <h1 class="script">Para ti, mi amor</h1>
+  <p>Un regalo hecho desde lo más profundo de mi corazón ✨</p>
+  <div class="heart-title">❤️</div>
+</section>
+
+<section class="card">
+  <h2 class="script">Nuestro tren de recuerdos 🚂</h2>
+
+  <div class="row">
+    <label class="btn" for="photos">📸 Agregar fotos</label>
+    <input type="file" id="photos" accept="image/*" multiple>
+    <button id="clearPhotos" type="button">Restablecer fotos</button>
+    <label>Velocidad
+      <input type="range" id="speed" min="1" max="10" value="4">
+    </label>
+  </div>
+
+  <div class="train">
+    <div class="track" id="track"></div>
+    <div class="rail"></div>
+  </div>
+  <small>Toca una fotografía para verla en grande. Al pasar el cursor sobre el tren, se detiene.</small>
+</section>
+
+<!-- VIDEO EN LUGAR DEL AUDIO -->
+<section class="card">
+  <h2 class="script">Nuestra canción 🎶</h2>
+
+  <div class="video-player">
+
+    <video id="videoAmor" controls loop playsinline preload="metadata">
+      <source src="file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/84b2b80319c6b0679f2569f06461f317~2.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+
+    <p class="video-caption">
+      Nuestra canción, nuestros recuerdos ❤️
+    </p>
+
+    <div class="row" style="justify-content:center">
+      <label class="btn" for="miVideo">🎬 Elegir otro video</label>
+      <input type="file" id="miVideo" accept="video/*">
+
+      <button id="playVideo" type="button">
+        ▶️ Reproducir
+      </button>
+    </div>
+
+    <small>Elige un video de tu teléfono o reproduce el video de la página. 💗</small>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="script">Una carta para ti 💌</h2>
+
+  <div class="letterbox">
+    <div class="env" id="env" role="button" tabindex="0" aria-label="Abrir carta">
+      <div class="flap"></div>
+      <div class="seal">💗</div>
+    </div>
+
+    <div class="paper" id="paper">
+      <div id="text"></div>
+      <textarea id="editor" aria-label="Editar carta"></textarea>
+      <div class="sign">Con amor,
+        <span id="from" contenteditable="true" spellcheck="false">Tu persona favorita 💗</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="edit" type="button">✍️ Editar carta</button>
+      <button id="replay" type="button">🔁 Leer de nuevo</button>
+    </div>
+  </div>
+</section>
+
+<footer class="script">Siempre tú, siempre nosotros 💞</footer>
+</main>
+
+<div id="lb"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+/* FOTOGRAFÍAS DE GITHUB */
+const photoFiles = [
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0022.jpg",
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0023.jpg",
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0024.jpg",
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0025.jpg",
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0037.jpg",
+  "file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/img irving/IMG-20261022-WA0029.jpg"
+];
+
+let photos = photoFiles.slice();
+
+const placeholders = [
+  ["💑","Tú y yo"],
+  ["🌅","Nuestros momentos"],
+  ["🍫","Dulces recuerdos"],
+  ["🎶","Nuestra canción"],
+  ["🌹","Para ti"],
+  ["💖","Nuestra historia"]
+];
+
+/* TREN */
+function wagon(src,emoji,caption){
+  const w=document.createElement("div");
+  w.className="wagon";
+
+  const frame=document.createElement("div");
+  frame.className="frame";
+
+  if(src){
+    const img=document.createElement("img");
+    img.src=src;
+    img.alt="Nuestro recuerdo";
+    img.loading="lazy";
+    img.onerror=()=>{
+      frame.innerHTML="";
+      frame.textContent="Sube esta foto a la carpeta imagenes";
+      frame.style.fontSize="12px";
+    };
+    frame.appendChild(img);
+  }else{
+    const box=document.createElement("div");
+    box.innerHTML="";
+    const em=document.createElement("span");
+    em.textContent=emoji;
+    em.style.fontSize="2.5rem";
+    const cap=document.createElement("div");
+    cap.textContent=caption;
+    box.append(em,cap);
+    frame.appendChild(box);
+  }
+
+  const wheels=document.createElement("div");
+  wheels.className="wheels";
+  wheels.innerHTML="<i></i><i></i>";
+
+  w.append(frame,wheels);
+  if(src) w.addEventListener("click",()=>openPhoto(src));
+  return w;
+}
+
+function renderTrain(){
+  const track=$("track");
+  track.innerHTML="";
+  const items=photos.length
+    ? photos.map(src=>[src,null,null])
+    : placeholders.map(p=>[null,p[0],p[1]]);
+
+  for(let copy=0;copy<2;copy++){
+    const locomotive=document.createElement("div");
+    locomotive.className="loco";
+    locomotive.textContent="🚂";
+    track.appendChild(locomotive);
+    items.forEach(item=>track.appendChild(wagon(...item)));
+  }
+  setSpeed();
+}
+
+function setSpeed(){
+  $("track").style.setProperty("--dur",(180/(+$("speed").value))+"s");
+}
+$("speed").addEventListener("input",setSpeed);
+
+$("photos").addEventListener("change",e=>{
+  const files=[...e.target.files].filter(f=>f.type.startsWith("image/"));
+  if(!files.length)return;
+
+  photos=files.map(f=>URL.createObjectURL(f));
+  renderTrain();
+  e.target.value="";
+});
+
+$("clearPhotos").addEventListener("click",()=>{
+  photos=photoFiles.slice();
+  renderTrain();
+});
+
+function openPhoto(src){
+  const lb=$("lb");
+  lb.innerHTML="";
+  const img=document.createElement("img");
+  img.src=src;
+  img.alt="Fotografía";
+  lb.appendChild(img);
+  lb.classList.add("show");
+}
+$("lb").addEventListener("click",()=> $("lb").classList.remove("show"));
+renderTrain();
+
+/* REPRODUCTOR DE VIDEO */
+const videoAmor=$("videoAmor");
+let videoTemporal=null;
+
+$("miVideo").addEventListener("change",e=>{
+  const file=e.target.files[0];
+  if(!file)return;
+
+  if(videoTemporal){
+    URL.revokeObjectURL(videoTemporal);
+  }
+
+  videoTemporal=URL.createObjectURL(file);
+  videoAmor.src=videoTemporal;
+  videoAmor.load();
+
+  videoAmor.play().catch(()=>{});
+  e.target.value="";
+});
+
+$("playVideo").addEventListener("click",()=>{
+  if(videoAmor.paused){
+    videoAmor.play().catch(()=>{});
+  }else{
+    videoAmor.pause();
+  }
+});
+
+videoAmor.addEventListener("play",()=>{
+  $("playVideo").textContent="⏸ Pausar";
+});
+
+videoAmor.addEventListener("pause",()=>{
+  $("playVideo").textContent="▶️ Reproducir";
+});
+
+/* CORAZONES FLOTANTES */
+function floatHeart(){
+  const h=document.createElement("div");
+  h.className="floating-heart";
+  h.textContent=["❤️","💗","💕","💘","✨"][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*18)+"px";
+  h.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(h);
+  h.addEventListener("animationend",()=>h.remove());
+}
+setInterval(floatHeart,1000);
+
+/* CARTA */
+let letter=`Mi amor: 💘
+
+Te escribo esto desde lo más profundo de mi corazón, porque eres la mujer que siempre soñé tener en mi vida y la persona con la que quiero vivir muchísimas experiencias.
+
+No olvides que, en tan poco tiempo, te volviste una de las personas más importantes de mi vida. Nunca olvidaré cómo, desde el primer día que te vi, me enamoré de ti.
+
+Quiero que sepas que, más allá de ser tu novio, quiero ser esa persona con la que siempre puedas contar. En tus peores momentos y en los mejores, siempre voy a estar a tu lado. Prometo dar lo mejor de mí para que todo salga bien y para demostrarte cada día lo mucho que significas para mí.
+
+Ten siempre presente que eres la mujer con la que siempre soñé. Te amo con todo mi corazón y te agradezco por todo lo que haces y has hecho por mí.
+
+Te prometo dar lo mejor de mí y esforzarme por darte todo lo bonito que mereces, porque mereces el mundo entero y mucho más.
+
+Te amo muchísimo, mi amor. 💘❤️`;
+
+try{
+  const saved=localStorage.getItem("carta");
+  if(saved)letter=saved;
+  const signature=localStorage.getItem("firma");
+  if(signature)$("from").textContent=signature;
+}catch(e){}
+
+let typeTimer;
+
+function typeLetter(){
+  clearInterval(typeTimer);
+  const el=$("text");
+  el.textContent="";
+  let i=0;
+  typeTimer=setInterval(()=>{
+    el.textContent=letter.slice(0,++i);
+    if(i>=letter.length)clearInterval(typeTimer);
+  },25);
+}
+
+function openEnvelope(){
+  $("env").classList.add("open");
+  $("paper").classList.add("show");
+  typeLetter();
+  setTimeout(()=> $("paper").scrollIntoView({behavior:"smooth",block:"center"}),250);
+}
+$("env").addEventListener("click",openEnvelope);
+$("env").addEventListener("keydown",e=>{
+  if(e.key==="Enter"||e.key===" "){
+    e.preventDefault();
+    openEnvelope();
+  }
+});
+
+$("replay").addEventListener("click",()=>{
+  $("editor").style.display="none";
+  $("text").style.display="block";
+  $("edit").textContent="✍️ Editar carta";
+  if(!$("env").classList.contains("open"))openEnvelope();
+  else typeLetter();
+});
+
+$("edit").addEventListener("click",()=>{
+  if(!$("env").classList.contains("open")){
+    $("env").classList.add("open");
+    $("paper").classList.add("show");
+  }
+
+  const editor=$("editor");
+  if(editor.style.display!=="block"){
+    clearInterval(typeTimer);
+    editor.value=letter;
+    editor.style.display="block";
+    $("text").style.display="none";
+    $("edit").textContent="💾 Guardar carta";
+    editor.focus();
+  }else{
+    letter=editor.value||letter;
+    editor.style.display="none";
+    $("text").style.display="block";
+    $("edit").textContent="✍️ Editar carta";
+    try{localStorage.setItem("carta",letter)}catch(e){}
+    typeLetter();
+  }
+});
+
+$("from").addEventListener("blur",()=>{
+  try{localStorage.setItem("firma",$("from").textContent)}catch(e){}
+});
+</script>
+</body>
+</html>
